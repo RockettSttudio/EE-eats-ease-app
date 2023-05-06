@@ -1,4 +1,4 @@
-package com.rockettsttudio.eatsease.ui.notifications
+package com.rockettsttudio.eatsease.ui.saved
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.rockettsttudio.eatsease.databinding.FragmentNotificationsBinding
+import com.rockettsttudio.eatsease.databinding.FragmentSavedBinding
 
-class NotificationsFragment : Fragment() {
+class SavedFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentSavedBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,15 +22,15 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        val savedViewModel =
+            ViewModelProvider(this).get(SavedViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentSavedBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val textView: TextView = binding.textSaved
+        savedViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = "Saved"
         }
         return root
     }
