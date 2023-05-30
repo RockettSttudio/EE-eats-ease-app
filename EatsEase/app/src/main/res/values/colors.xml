@@ -10,5 +10,10 @@
     <color name="green_base">#FF08CE6F</color>
     <color name="pink_base">#FFE5D0E3</color>
     <color name="mint_base">#FFCCFBFE</color>
+    <color name="verdeapp">#08CE6F</color>
+    <color name="blackapp">#000000</color>
+    <color name="rosaapp">#E5D0E3</color>
+    <color name="celesteapp">#CCFBFE</color>
+    <color name="azulgoogle">#4285F4</color>
 
 </resources>

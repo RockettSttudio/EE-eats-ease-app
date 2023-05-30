@@ -5,4 +5,6 @@
     <dimen name="min_gap">8dp</dimen>
     <dimen name="medium_gap">16dp</dimen>
     <dimen name="big_gap">24dp</dimen>
+    <dimen name="title_size">34sp</dimen>
+
 </resources>
