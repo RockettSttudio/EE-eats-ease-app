@@ -29,10 +29,6 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         //Erase this, its just to show the fragment at first
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = "Home"
-        }
         return root
     }
 
