@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.rockettsttudio.eatsease.databinding.FragmentSavedBinding
@@ -26,13 +25,8 @@ class SavedFragment : Fragment() {
             ViewModelProvider(this).get(SavedViewModel::class.java)
 
         _binding = FragmentSavedBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textSaved
-        savedViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = "Saved"
-        }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
