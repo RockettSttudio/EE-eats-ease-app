@@ -17,14 +17,16 @@ class IngredientsFragment : Fragment() {
     private var _binding: FragmentIngredientesBinding? = null
     private val binding get() = _binding!!
 
-   override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_ingredientes, container, false)
+        _binding = FragmentIngredientesBinding.inflate(inflater, container, false)
+        checkboxIngredients = binding.CheckboxIngredients
+        return binding.root
+    }
 
-   }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
