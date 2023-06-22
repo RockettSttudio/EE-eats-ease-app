@@ -12,8 +12,6 @@ import com.rockettsttudio.eatsease.databinding.FragmentIngredientesBinding
 
 class IngredientsFragment : Fragment() {
 
-    private lateinit var checkboxIngredients: CheckBox
-
     private var _binding: FragmentIngredientesBinding? = null
     private val binding get() = _binding!!
 
@@ -26,17 +24,6 @@ class IngredientsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        checkboxIngredients = binding.CheckboxIngredients
-        checkboxIngredients.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                // Acciones cuando el CheckBox está seleccionado
-            } else {
-                // Acciones cuando el CheckBox no está seleccionado
-            }
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
