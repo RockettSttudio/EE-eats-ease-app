@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/nav_view_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground"
@@ -16,7 +16,7 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/image_view_receta"
         android:layout_width="343dp"
         android:layout_height="237dp"
         android:layout_marginStart="34dp"
@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/svg_layer4" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/name_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -40,10 +40,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/image_view_receta" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/description_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -53,10 +53,10 @@
         android:textSize="@dimen/min_gap"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/name_receta" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/ingerdients_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -67,10 +67,10 @@
         android:textSize="@dimen/medium_gap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/description_receta" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/item_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -78,10 +78,10 @@
         android:text="Item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/ingerdients_receta" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/proceso_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -92,10 +92,10 @@
         android:textSize="@dimen/medium_gap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/item_receta" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/descripcion_proceso_receta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -104,10 +104,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/proceso_receta" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/Eats_Ease_receta"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="295dp"
