@@ -23,8 +23,19 @@ class IngredientsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentIngredientesBinding.inflate(inflater, container, false)
-        checkboxIngredients = binding.CheckboxIngredients
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        checkboxIngredients = binding.CheckboxIngredients
+        checkboxIngredients.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // Acciones cuando el CheckBox está seleccionado
+            } else {
+                // Acciones cuando el CheckBox no está seleccionado
+            }
+        }
     }
 
     override fun onDestroyView() {
