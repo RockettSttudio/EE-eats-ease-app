@@ -14,10 +14,15 @@ class RecipeViewModel(application: Application) : AndroidViewModel(application) 
     private val _randomRecipes = MutableLiveData<List<Recipe>>()
     val randomRecipes: LiveData<List<Recipe>> get() = _randomRecipes
 
-    fun fetchRandomRecipes(apiKey: String, number: Int) {
+    fun setRecipes(recipes: List<Recipe>){
+        _randomRecipes.value = recipes
+    }
+
+    fun fetchRandomRecipes(apiKey: String, number: Int, tags: String) {
         recipeRepository.getRandomRecipes(
             apiKey,
             number,
+            tags,
             { recipes ->
                 _randomRecipes.value = recipes
             },

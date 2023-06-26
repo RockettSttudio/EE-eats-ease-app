@@ -15,10 +15,11 @@ class RecipeRepository {
     fun getRandomRecipes(
         apiKey: String,
         number: Int,
+        tags: String,
         onResponse: (List<Recipe>?) -> Unit,
         onFailure: (Throwable) -> Unit
     ) {
-        apiService.getRandomRecipes(apiKey, number).enqueue(object : Callback<ApiResponse> {
+        apiService.getRandomRecipes(apiKey, number, tags).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful) {
                     onResponse(response.body()?.recipes)

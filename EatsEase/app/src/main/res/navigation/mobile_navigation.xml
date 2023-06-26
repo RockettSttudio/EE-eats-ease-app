@@ -25,10 +25,18 @@
         <action
             android:id="@+id/action_navigation_recipes_to_recipeDetailsFragment"
             app:destination="@id/recipeDetailsFragment" />
+        <action
+            android:id="@+id/action_navigation_recipes_to_ingredientsFragment2"
+            app:destination="@id/ingredientsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/recipeDetailsFragment"
         android:name="com.rockettsttudio.eatsease.ui.recipes.RecipeDetailsFragment"
         android:label="fragment_recipe_details"
         tools:layout="@layout/fragment_recipe_details" />
+    <fragment
+        android:id="@+id/ingredientsFragment2"
+        android:name="com.rockettsttudio.eatsease.ui.Ingredients.IngredientsFragment"
+        android:label="fragment_ingredients"
+        tools:layout="@layout/fragment_ingredients" />
 </navigation>

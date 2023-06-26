@@ -49,10 +49,27 @@ class RecipesFragment : Fragment() {
             adapter = recipeAdapter
         }
 
-
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
-        val number = 5
-        recipeViewModel.fetchRandomRecipes(apiKey, number)
+        val number = 10
+        binding.actionIngredients.setOnClickListener {
+            fetchToAdapter(apiKey, number, "vegan")
+        }
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (recipeViewModel.randomRecipes.value == null) {
+            fetchToAdapter("defe9d5425bf4785b81f35a1827edb2a", 10, "")
+        } else {
+            recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
+            recipeAdapter.notifyDataSetChanged()
+        }
+    }
+
+    fun fetchToAdapter(apiKey: String, number: Int, tags: String) {
+        recipeViewModel.fetchRandomRecipes(apiKey, number, tags)
         recipeViewModel.randomRecipes.observe(viewLifecycleOwner) { recipes ->
             if (recipes != null && recipes.isNotEmpty()) {
                 recipeAdapter.recipes = recipes // Update the adapter's data
@@ -61,8 +78,6 @@ class RecipesFragment : Fragment() {
                 // Handle the error or show a message to the user
             }
         }
-
-        return binding.root
     }
 
     fun onItemClick(recipe: Recipe) {
