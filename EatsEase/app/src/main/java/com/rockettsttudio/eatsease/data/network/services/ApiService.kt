@@ -10,6 +10,6 @@ interface ApiService {
     fun getRandomRecipes(
         @Query("apiKey") apiKey: String,
         @Query("number") number: Int,
-        @Query("tag") tag: String? = null
+        @Query("tags") tags: String
     ): Call<ApiResponse>
 }
