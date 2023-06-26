@@ -1,13 +1,13 @@
-package com.rockettsttudio.eatsease
+package com.rockettsttudio.eatsease.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
