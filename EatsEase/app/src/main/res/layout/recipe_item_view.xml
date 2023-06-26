@@ -20,11 +20,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/recipe_image_view"
                 android:layout_width="0dp"
                 android:layout_height="170dp"
                 android:src="@drawable/svg_layer4"
+                app:shapeAppearanceOverlay="@style/radius"
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
