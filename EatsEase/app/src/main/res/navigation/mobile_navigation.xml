@@ -21,5 +21,14 @@
         android:id="@+id/navigation_recipes"
         android:name="com.rockettsttudio.eatsease.ui.recipes.RecipesFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_recipes" />
+        tools:layout="@layout/fragment_recipes" >
+        <action
+            android:id="@+id/action_navigation_recipes_to_recipeDetailsFragment"
+            app:destination="@id/recipeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDetailsFragment"
+        android:name="com.rockettsttudio.eatsease.ui.recipes.RecipeDetailsFragment"
+        android:label="fragment_recipe_details"
+        tools:layout="@layout/fragment_recipe_details" />
 </navigation>
