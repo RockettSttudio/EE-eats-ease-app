@@ -11,11 +11,11 @@ import com.rockettsttudio.eatsease.repositories.RecipeRepository
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
     private val recipeRepository: RecipeRepository = RecipeRepository()
 
-    private val _randomRecipes = MutableLiveData<List<Recipe>>()
-    val randomRecipes: LiveData<List<Recipe>> get() = _randomRecipes
+    private val _randomRecipes = MutableLiveData<List<Recipe>?>()
+    val randomRecipes: MutableLiveData<List<Recipe>?> get() = _randomRecipes
 
-    fun setRecipes(recipes: List<Recipe>){
-        _randomRecipes.value = recipes
+    fun setRecipes(){
+        _randomRecipes.value = null
     }
 
     fun fetchRandomRecipes(apiKey: String, number: Int, tags: String) {

@@ -24,5 +24,8 @@
     <string name="accept_terms_amp_conditions"><![CDATA[accept terms & conditions]]></string>
     <string name="sign_up">Sign up</string>
     <string name="today_s_recomendation">Today\'s Recomendation</string>
+    <string name="asian_card_view_title">ASIAN</string>
+    <string name="vegan_card_view_title">VEGAN</string>
+    <string name="gluten_free_title">gluten-free</string>
     //MAIN
 </resources>

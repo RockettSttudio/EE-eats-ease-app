@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -49,22 +50,38 @@ class RecipesFragment : Fragment() {
             adapter = recipeAdapter
         }
 
-        val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
-        val number = 10
-        binding.actionIngredients.setOnClickListener {
-            fetchToAdapter(apiKey, number, "vegan")
-        }
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (recipeViewModel.randomRecipes.value == null) {
-            fetchToAdapter("defe9d5425bf4785b81f35a1827edb2a", 10, "")
+            fetchToAdapter("defe9d5425bf4785b81f35a1827edb2a", 15, "")
         } else {
             recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
             recipeAdapter.notifyDataSetChanged()
+        }
+        val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
+        val number = 30
+        binding.asianCuisineCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "asian")
+        }
+        binding.veganCuisineCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "vegan,vegetarian")
+        }
+        binding.mexicanCuisineCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "mexican")
+        }
+        binding.dessertCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "dessert")
+        }
+        binding.drinksCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "drink")
         }
     }
 

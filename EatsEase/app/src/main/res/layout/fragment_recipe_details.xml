@@ -22,7 +22,7 @@
             android:layout_width="409dp"
             android:layout_height="0dp"
             android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toTopOf="@+id/nav_view_receta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -35,11 +35,15 @@
                 android:orientation="vertical">
 
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageDetailsView"
-                    android:layout_width="0dp"
-                    android:layout_height="275dp"
+                    android:layout_width="375dp"
+                    android:layout_height="271dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="32dp"
+                    android:layout_marginEnd="30dp"
+                    android:scaleType="fitCenter"
+                    app:shapeAppearanceOverlay="@style/radius"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -51,8 +55,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto"
                     android:text="Titulo de la receta"
-                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/big_gap"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -60,30 +66,85 @@
 
                 <TextView
                     android:id="@+id/descDetailsView"
-                    android:layout_width="match_parent"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_light"
                     android:text="asdasd"
+                    android:textColor="#2E4053"
+                    android:textSize="@dimen/medium_gap"
+                    android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleDetailView" />
 
                 <TextView
-                    android:id="@+id/ingredientsDetailsView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="asdasdasdasd"
+                    android:id="@+id/ingredients_recipe_titkle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/didact_gothic"
+                    android:text="Ingredients:"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/verdeapp"
+                    android:textSize="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/descDetailsView" />
 
                 <TextView
-                    android:id="@+id/instructionsDetailsView"
-                    android:layout_width="match_parent"
+                    android:id="@+id/ingredientsDetailsView"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/didact_gothic"
                     android:text="asdasdasdasd"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe_titkle" />
+
+                <TextView
+                    android:id="@+id/progress_recipe_titkle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/didact_gothic"
+                    android:text="Process:"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/verdeapp"
+                    android:textSize="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ingredientsDetailsView" />
+
+
+                <TextView
+                    android:id="@+id/instructionsDetailsView"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginEnd="80dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="asdasdasdasd"
+                    android:textColor="#2E4053"
+                    android:textSize="@dimen/medium_gap"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progress_recipe_titkle" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
