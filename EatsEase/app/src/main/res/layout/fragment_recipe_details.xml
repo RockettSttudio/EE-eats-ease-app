@@ -112,6 +112,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ingredients_recipe_titkle" />
 
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@+id/progress_recipe_titkle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ingredientsDetailsView" />
+
                 <TextView
                     android:id="@+id/progress_recipe_titkle"
                     android:layout_width="0dp"
@@ -146,10 +159,24 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/progress_recipe_titkle" />
 
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/instructionsDetailsView" />
+
                 <RatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:numStars="5"
                     android:progressBackgroundTint="@color/gris"
                     android:progressTint="@android:color/holo_orange_dark"
