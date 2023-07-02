@@ -45,12 +45,16 @@ class RecipeDetailsFragment : Fragment() {
             startActivity(intent)
         }
 
+        val recipeTitle = arguments?.getString("title") //Titulo
         binding.titleDetailView.text = arguments?.getString("title")
-        val imgUrl = arguments?.getString("image")
-        val sourceURL = arguments?.getString("sourceURL")
+        val imgUrl = arguments?.getString("image") //IMAGEN
+        val sourceURL = arguments?.getString("sourceURL") //LINK
         Glide.with(requireContext()).load(imgUrl).into(binding.imageDetailsView)
+        val recipeSummary = arguments?.getString("summary") //descripcion
         binding.descDetailsView.text = arguments?.getString("summary")
+        val recipeIngredients = arguments?.getString("ingredients")
         binding.ingredientsDetailsView.text = arguments?.getString("ingredients")
+        val recipeInstr =  arguments?.getString("instructions") //instruciones
         binding.instructionsDetailsView.text = arguments?.getString("instructions")
 
         onBackPressedCallback = object : OnBackPressedCallback(true) {
