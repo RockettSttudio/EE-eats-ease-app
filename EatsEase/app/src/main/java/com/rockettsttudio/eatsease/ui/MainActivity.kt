@@ -7,6 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.databinding.ActivityMainBinding
 
@@ -34,5 +36,10 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         supportActionBar?.hide()
+    }
+
+    override fun onDestroy() {
+        Firebase.auth.signOut()
+        super.onDestroy()
     }
 }
