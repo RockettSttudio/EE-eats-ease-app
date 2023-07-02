@@ -84,6 +84,7 @@
                 android:layout_margin="8dp"
                 android:background="@color/white"
                 android:src="@drawable/fav_border"
+                android:onClick="guardarReceta"
                 tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <ImageButton
