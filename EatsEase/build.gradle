@@ -10,6 +10,15 @@ buildscript {
         room_version = '2.5.1'
 
     }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.15'
+        classpath 'com.android.tools.build:gradle:8.0.2'
+    }
+
 }
 plugins {
     id 'com.android.application' version '8.0.1' apply false

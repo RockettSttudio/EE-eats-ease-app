@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "391565715789",
+    "firebase_url": "https://practical-robot-385804-default-rtdb.firebaseio.com",
+    "project_id": "practical-robot-385804",
+    "storage_bucket": "practical-robot-385804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391565715789:android:238f8b05e58d645d686f04",
+        "android_client_info": {
+          "package_name": "com.rockettsttudio.eatsease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391565715789-rb9rv0dkaap6m9f9lv3as5mi5orupku1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rockettsttudio.eatsease",
+            "certificate_hash": "afa781192ac2eb0a4ed69279e9c1484b5fb33758"
+          }
+        },
+        {
+          "client_id": "391565715789-0ous0snud2quk8i7hm578dou1o830cjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOLxdqg9kLBFWMPw5OmiT0gUOmWxwd12Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391565715789-0ous0snud2quk8i7hm578dou1o830cjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

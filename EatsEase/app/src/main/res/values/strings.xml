@@ -27,5 +27,6 @@
     <string name="asian_card_view_title">ASIAN</string>
     <string name="vegan_card_view_title">VEGAN</string>
     <string name="gluten_free_title">gluten-free</string>
+    <string name="register">Register</string>
     //MAIN
 </resources>
