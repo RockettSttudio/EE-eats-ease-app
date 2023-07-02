@@ -15,11 +15,14 @@ import com.bumptech.glide.Glide
 import com.rockettsttudio.eatsease.databinding.FragmentRecipeDetailsBinding
 import android.content.Intent
 import android.provider.CalendarContract
+import android.widget.Button
+import android.widget.CheckBox
 
 class RecipeDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentRecipeDetailsBinding
     private var onBackPressedCallback: OnBackPressedCallback? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +40,14 @@ class RecipeDetailsFragment : Fragment() {
         binding.backFlechaReceta.setOnClickListener {
             findNavController().navigateUp()
         }
+        binding.favoriteButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // Checkbox is checked, perform desired action
+            } else {
+                // Checkbox is unchecked, perform desired action
+            }
+        }
+
 
         binding.addCalendar.setOnClickListener {
             val intent = Intent(Intent.ACTION_INSERT)
