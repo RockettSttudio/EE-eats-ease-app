@@ -66,7 +66,7 @@ class RecipeDetailsFragment : Fragment() {
         binding.shareRecipe.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
-            val shareText = "¡Mira esta increíble receta! ${arguments?.getString("title")}"
+            val shareText = "¡Mira esta increíble receta! ${arguments?.getString("sourceURL")}"
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareText)
             startActivity(Intent.createChooser(shareIntent, "Compartir receta"))
         }
