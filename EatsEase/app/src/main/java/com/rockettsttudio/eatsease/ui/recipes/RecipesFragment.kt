@@ -105,6 +105,7 @@ class RecipesFragment : Fragment() {
             putString("title", recipe.title)
             val summary = HtmlCompat.fromHtml(recipe.summary, HtmlCompat.FROM_HTML_MODE_LEGACY).toString()
             putString("summary", summary)
+            putString("sourceURL", recipe.sourceUrl)
             val ingredients = recipe.extendedIngredients.joinToString("\n") { ingredient ->
                 "${ingredient.name}: ${ingredient.amount} ${ingredient.unit}"
             }

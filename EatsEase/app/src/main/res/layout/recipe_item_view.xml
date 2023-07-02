@@ -78,6 +78,7 @@
 
 
             <ImageButton
+                android:id="@+id/fav_action"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="8dp"

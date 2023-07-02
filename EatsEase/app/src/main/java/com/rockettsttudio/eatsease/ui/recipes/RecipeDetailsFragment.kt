@@ -34,6 +34,7 @@ class RecipeDetailsFragment : Fragment() {
 
         binding.titleDetailView.text = arguments?.getString("title")
         val imgUrl = arguments?.getString("image")
+        val sourceURL = arguments?.getString("sourceURL")
         Glide.with(requireContext()).load(imgUrl).into(binding.imageDetailsView)
         binding.descDetailsView.text = arguments?.getString("summary")
         binding.ingredientsDetailsView.text = arguments?.getString("ingredients")
