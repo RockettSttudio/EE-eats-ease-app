@@ -17,45 +17,35 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <LinearLayout
-        android:id="@+id/linearLayout_saved"
+        android:layout_marginTop="8dp"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="24dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:paddingLeft="16dp"
+            android:scaleType="fitStart"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:src="@drawable/headline"
+            tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
 
         <ImageButton
-            android:id="@+id/back_flecha_saved"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="6dp"
             android:background="@color/white"
-            android:rotationY="-180"
-            android:src="@drawable/baseline_arrow_forward_24"
-            android:clickable="true"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Saved recipes"
-            android:textColor="@color/verdeapp"
-            android:textSize="@dimen/big_gap"/>
-
-        <ImageView
-            android:id="@+id/Eats_Ease_saved"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="15dp"
-            android:src="@drawable/headline"
-            android:scaleType="fitStart"
-            android:adjustViewBounds="true" />
+            android:src="@drawable/ic_action_more"
+            tools:ignore="ContentDescription,RtlHardcoded,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@+id/constraintlayout_saved"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_saved">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -340,16 +330,19 @@
                         android:scaleType="centerCrop"/>
 
                     <TextView
-                        android:textAlignment="center"
-                        android:background="@drawable/rounded_background"
-                        android:shadowColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_margin="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
                         android:text="ASIAN"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />
