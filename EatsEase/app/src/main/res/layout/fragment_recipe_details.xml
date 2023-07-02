@@ -178,7 +178,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ratingBar"
                     tools:ignore="MissingConstraints"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="shareRecipe"/>
+
 
                 <ImageView
                     android:id="@+id/add_calendar"
