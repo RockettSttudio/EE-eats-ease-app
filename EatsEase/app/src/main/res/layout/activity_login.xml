@@ -28,7 +28,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="70dp"
-        android:hint="@string/username"
+        android:hint="@string/email"
         app:boxCornerRadiusBottomEnd="15sp"
         app:boxCornerRadiusBottomStart="15sp"
         app:boxCornerRadiusTopEnd="15sp"
