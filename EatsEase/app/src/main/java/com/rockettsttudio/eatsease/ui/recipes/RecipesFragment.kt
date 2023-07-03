@@ -62,6 +62,7 @@ class RecipesFragment : Fragment() {
             recipeAdapter.notifyDataSetChanged()
         }
         val apikey_roque ="00b02f1c12194c83ac59aa715644f859"
+        val apikey_moran ="74f6c26b27ae445c80b6c726383271c6"
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
         val number = 30
         binding.asianCuisineCardView.setOnClickListener {
@@ -78,7 +79,7 @@ class RecipesFragment : Fragment() {
         }
         binding.dessertCardView.setOnClickListener {
             recipeViewModel.setRecipes()
-            fetchToAdapter(apiKey, number, "dessert")
+            fetchToAdapter(apikey_moran, number, "dessert")
         }
         binding.drinksCardView.setOnClickListener {
             recipeViewModel.setRecipes()
