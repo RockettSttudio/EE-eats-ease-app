@@ -15,7 +15,11 @@
         android:id="@+id/navigation_saved"
         android:name="com.rockettsttudio.eatsease.ui.saved.SavedFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_saved" />
+        tools:layout="@layout/fragment_saved" >
+        <action
+            android:id="@+id/action_navigation_saved_to_recipeDetailsFragment"
+            app:destination="@id/recipeDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_recipes"
