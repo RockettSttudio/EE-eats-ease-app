@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -27,6 +29,10 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        binding.settingsImageButton.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.action_navigation_home_to_settingsFragment)
+        }
 
         //Erase this, its just to show the fragment at first
         return root

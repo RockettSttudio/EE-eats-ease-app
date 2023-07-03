@@ -83,6 +83,10 @@ class RecipesFragment : Fragment() {
             recipeViewModel.setRecipes()
             fetchToAdapter(apiKey, number, "drink")
         }
+        binding.settingsImageButton.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.action_navigation_recipes_to_settingsFragment)
+        }
     }
 
     fun fetchToAdapter(apiKey: String, number: Int, tags: String) {

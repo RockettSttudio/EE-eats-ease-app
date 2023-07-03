@@ -46,6 +46,11 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
         binding.recyclerviewSaved.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerviewSaved.adapter = savedAdapter
 
+        binding.settingsImageButton.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.action_navigation_saved_to_settingsFragment)
+        }
+
         // Add your logic to fetch the list of saved recipes from the database
         // and pass it to the adapter using setRecipes() method
         val savedRecipes = getSavedRecipesFromDatabase()

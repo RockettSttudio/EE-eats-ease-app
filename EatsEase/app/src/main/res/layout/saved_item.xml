@@ -1,92 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="210dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardUseCompatPadding="true"
-    android:elevation="8dp"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
     android:clickable="true"
     android:focusable="true"
-    android:layout_margin="6dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="160dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/recipe_image_view_saved"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/svg_layer4" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/recipe_title_view_saved"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Title of the Recipe"
+            android:textColor="#1B2631"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/recipe_image_view_saved"
-                android:layout_width="0dp"
-                android:layout_height="170dp"
-                android:src="@drawable/svg_layer4"
-                app:shapeAppearanceOverlay="@style/radius"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="170dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/recipe_title_view_saved"
-                    android:layout_margin="6dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="titulo de la receta a presentar en la card "
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/didact_gothic"
-                    android:textSize="20dp"
-                    android:textColor="#1B2631"
-                    tools:ignore="HardcodedText" />
-
-                <TextView
-                    android:id="@+id/recipe_desc_view_saved"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:textStyle="normal"
-                    android:textColor="#2E4053"
-                    android:fontFamily="@font/roboto_light"
-                    android:textAlignment="center"
-                    android:text="este es una descripcion de prueba para las cartas a mostrar"
-                    tools:ignore="HardcodedText" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
+        <TextView
+            android:id="@+id/recipe_desc_view_saved"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#0A000000"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal">
-
-
-            <ImageButton
-                android:id="@+id/btnDelete"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/basura"
-                android:scaleType="fitCenter" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Description of the recipe"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
