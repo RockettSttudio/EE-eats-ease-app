@@ -61,6 +61,7 @@ class RecipesFragment : Fragment() {
             recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
             recipeAdapter.notifyDataSetChanged()
         }
+        val apikey_roque ="00b02f1c12194c83ac59aa715644f859"
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
         val number = 30
         binding.asianCuisineCardView.setOnClickListener {
@@ -73,7 +74,7 @@ class RecipesFragment : Fragment() {
         }
         binding.mexicanCuisineCardView.setOnClickListener {
             recipeViewModel.setRecipes()
-            fetchToAdapter(apiKey, number, "mexican")
+            fetchToAdapter(apikey_roque, number, "mexican")
         }
         binding.dessertCardView.setOnClickListener {
             recipeViewModel.setRecipes()
