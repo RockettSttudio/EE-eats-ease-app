@@ -78,7 +78,6 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
 
         if (isTablet) {
             val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
-
             mainActivity.setTopNavigationVisibility(View.VISIBLE)
             navController2.navigate(R.id.recipeDetailsFragment, bundle)
         } else {

@@ -128,7 +128,7 @@ class RecipesFragment : Fragment() {
             navController2.navigate(R.id.recipeDetailsFragment, bundle)
         } else {
             mainActivity.setTopNavigationVisibility(View.GONE)
-            navController.navigate(R.id.action_navigation_saved_to_recipeDetailsFragment, bundle)
+            navController.navigate(R.id.action_navigation_recipes_to_recipeDetailsFragment, bundle)
         }
     }
 
