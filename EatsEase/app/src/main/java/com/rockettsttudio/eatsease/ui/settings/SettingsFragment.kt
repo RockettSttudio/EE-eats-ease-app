@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
@@ -36,12 +37,21 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mainActivity = activity as MainActivity
 
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+        val navController = requireActivity().findNavController(R.id.nav_host_fragment_activity_main)
+        val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
+
 
         binding.backFlechaSettings.setOnClickListener {
-            mainActivity.setTopNavigationVisibility(View.VISIBLE) // Show the top_navigation view
-            findNavController().navigateUp()
+            if (isTablet) {
+                mainActivity.setTopNavigationVisibility(View.VISIBLE)
+                navController.navigateUp()
+                navController2.navigateUp()
+            }else{
+                mainActivity.setTopNavigationVisibility(View.VISIBLE)
+                navController.navigateUp()
+            }
         }
-
         binding.linearLayoutSecuritySettings.setOnClickListener {
             navigateToLogin()
         }

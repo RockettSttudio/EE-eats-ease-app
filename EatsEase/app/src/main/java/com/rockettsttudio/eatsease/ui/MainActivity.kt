@@ -25,12 +25,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         val navView: BottomNavigationView = binding.navView
-
-
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val navController2 = findNavController(R.id.nav_host_fragment_activity_main2)
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+
+        if (isTablet) {
+            navController2.navigate(R.id.blankFragment)
+        }
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -39,8 +42,15 @@ class MainActivity : AppCompatActivity() {
             )
         )
         binding.settingsImageButton.setOnClickListener {
-            setTopNavigationVisibility(View.GONE)
-            navController.navigate(R.id.navigation_Settings)
+            if (isTablet) {
+                setTopNavigationVisibility(View.GONE)
+                navController2.navigate(R.id.navigation_Settings)
+                navController.navigate(R.id.blankFragment)
+
+            }else{
+                setTopNavigationVisibility(View.GONE)
+                navController.navigate(R.id.navigation_Settings)
+            }
         }
 
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -61,6 +62,11 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
 
     override fun onItemClick(recipe: SavedRecipes) {
         // Handle item click event
+        val mainActivity = activity as MainActivity
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+        val navController = findNavController()
+        val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
+
         val bundle = Bundle().apply {
             putString("title", recipe.recipeTitle)
             putString("image", recipe.imgUrl)
@@ -71,11 +77,13 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
             putString("instructions", recipe.recipeInstructions)
         }
 
-        val mainActivity = activity as MainActivity
-        mainActivity.setTopNavigationVisibility(View.GONE)
-        // Navigate to the RecipeDetailFragment and pass the bundle
-        val navController = findNavController()
-        navController.navigate(R.id.action_navigation_saved_to_recipeDetailsFragment, bundle)
+        if (isTablet) {
+            mainActivity.setTopNavigationVisibility(View.VISIBLE)
+            navController2.navigate(R.id.recipeDetailsFragment, bundle)
+        } else {
+            mainActivity.setTopNavigationVisibility(View.GONE)
+            navController.navigate(R.id.action_navigation_saved_to_recipeDetailsFragment, bundle)
+        }
     }
 
     private fun getSavedRecipesFromDatabase(): List<SavedRecipes> {
