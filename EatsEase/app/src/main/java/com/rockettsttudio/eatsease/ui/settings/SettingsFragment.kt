@@ -39,11 +39,11 @@ class SettingsFragment : Fragment() {
 
         val isTablet = resources.getBoolean(R.bool.isTablet)
         val navController = requireActivity().findNavController(R.id.nav_host_fragment_activity_main)
-        val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
 
 
         binding.backFlechaSettings.setOnClickListener {
             if (isTablet) {
+                val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
                 mainActivity.setTopNavigationVisibility(View.VISIBLE)
                 navController.navigateUp()
                 navController2.navigateUp()

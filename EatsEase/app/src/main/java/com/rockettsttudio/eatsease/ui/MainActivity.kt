@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val navController2 = findNavController(R.id.nav_host_fragment_activity_main2)
         val isTablet = resources.getBoolean(R.bool.isTablet)
 
         if (isTablet) {
+            val navController2 = findNavController(R.id.nav_host_fragment_activity_main2)
             navController2.navigate(R.id.blankFragment)
         }
 
@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         )
         binding.settingsImageButton.setOnClickListener {
             if (isTablet) {
+                val navController2 = findNavController(R.id.nav_host_fragment_activity_main2)
                 setTopNavigationVisibility(View.GONE)
                 navController2.navigate(R.id.navigation_Settings)
                 navController.navigate(R.id.blankFragment)

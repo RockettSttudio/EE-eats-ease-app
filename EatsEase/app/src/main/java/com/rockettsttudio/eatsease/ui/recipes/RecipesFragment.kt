@@ -107,7 +107,6 @@ class RecipesFragment : Fragment() {
         val mainActivity = activity as MainActivity
         val isTablet = resources.getBoolean(R.bool.isTablet)
         val navController = findNavController()
-        val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
 
         val bundle = Bundle().apply {
             putString("title", recipe.title)
@@ -124,6 +123,7 @@ class RecipesFragment : Fragment() {
         }
 
         if (isTablet) {
+            val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
             mainActivity.setTopNavigationVisibility(View.VISIBLE)
             navController2.navigate(R.id.recipeDetailsFragment, bundle)
         } else {
