@@ -9,8 +9,6 @@
     app:cardBackgroundColor="@color/white"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -18,44 +16,57 @@
         android:layout_height="160dp"
         android:orientation="horizontal">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/recipe_image_view_saved"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/svg_layer4" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/recipe_image_view_saved"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/svg_layer4" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="8dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/recipe_title_view_saved"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title of the Recipe"
-            android:textColor="#1B2631"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/recipe_title_view_saved"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="6dp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:text="Title of the Recipe"
+                android:textColor="#1B2631"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/recipe_desc_view_saved"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Description of the recipe"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/faded_line"/>
+
+
+            <TextView
+                android:id="@+id/recipe_desc_view_saved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:fadeScrollbars="true"
+                android:text="Description of the recipe"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+</com.google.android.material.card.MaterialCardView>
 
