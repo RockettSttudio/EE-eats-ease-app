@@ -5,8 +5,66 @@
     android:id="@+id/container"
     android:background="@color/gris"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+    android:layout_height="match_parent">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/top_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:paddingLeft="16dp"
+                android:scaleType="fitStart"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:src="@drawable/headline"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+
+            <ImageButton
+                android:id="@+id/settingsImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_more_vert_24"
+                tools:ignore="ContentDescription,RtlHardcoded,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -15,22 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <fragment
-        android:id="@+id/nav_host_fragment_activity_main"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

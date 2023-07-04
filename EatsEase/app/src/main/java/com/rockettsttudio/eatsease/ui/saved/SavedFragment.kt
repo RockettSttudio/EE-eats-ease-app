@@ -21,6 +21,7 @@ import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.data.models.Recipe
 import com.rockettsttudio.eatsease.data.models.SavedRecipes
 import com.rockettsttudio.eatsease.databinding.FragmentSavedBinding
+import com.rockettsttudio.eatsease.ui.MainActivity
 
 class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
 
@@ -46,10 +47,6 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
         binding.recyclerviewSaved.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerviewSaved.adapter = savedAdapter
 
-        binding.settingsImageButton.setOnClickListener {
-            val navController = findNavController()
-            navController.navigate(R.id.action_navigation_saved_to_settingsFragment)
-        }
 
         // Add your logic to fetch the list of saved recipes from the database
         // and pass it to the adapter using setRecipes() method
@@ -74,6 +71,8 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
             putString("instructions", recipe.recipeInstructions)
         }
 
+        val mainActivity = activity as MainActivity
+        mainActivity.setTopNavigationVisibility(View.GONE)
         // Navigate to the RecipeDetailFragment and pass the bundle
         val navController = findNavController()
         navController.navigate(R.id.action_navigation_saved_to_recipeDetailsFragment, bundle)

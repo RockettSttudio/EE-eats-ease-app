@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/navigation_Settings" />
     </fragment>
 
     <fragment
@@ -25,7 +25,7 @@
             app:destination="@id/recipeDetailsFragment" />
         <action
             android:id="@+id/action_navigation_saved_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/navigation_Settings" />
     </fragment>
 
     <fragment
@@ -41,7 +41,7 @@
             app:destination="@id/ingredientsFragment2" />
         <action
             android:id="@+id/action_navigation_recipes_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/navigation_Settings" />
     </fragment>
     <fragment
         android:id="@+id/recipeDetailsFragment"
@@ -54,7 +54,7 @@
         android:label="fragment_ingredients"
         tools:layout="@layout/fragment_ingredients" />
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/navigation_Settings"
         android:name="com.rockettsttudio.eatsease.ui.settings.SettingsFragment"
         android:label="SettingsFragment" />
 </navigation>

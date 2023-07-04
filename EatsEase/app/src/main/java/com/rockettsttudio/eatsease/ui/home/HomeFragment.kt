@@ -29,10 +29,6 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        binding.settingsImageButton.setOnClickListener {
-            val navController = findNavController()
-            navController.navigate(R.id.action_navigation_home_to_settingsFragment)
-        }
 
         //Erase this, its just to show the fragment at first
         return root

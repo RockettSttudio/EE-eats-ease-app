@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.rockettsttudio.eatsease.Login
@@ -32,6 +34,13 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val mainActivity = activity as MainActivity
+
+
+        binding.backFlechaSettings.setOnClickListener {
+            mainActivity.setTopNavigationVisibility(View.VISIBLE) // Show the top_navigation view
+            findNavController().navigateUp()
+        }
 
         binding.linearLayoutSecuritySettings.setOnClickListener {
             navigateToLogin()

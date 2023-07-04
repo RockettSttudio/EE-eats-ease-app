@@ -11,12 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.rockettsttudio.eatsease.databinding.FragmentRecipesBinding
 import com.rockettsttudio.eatsease.ui.ViewModelFactory
 import com.rockettsttudio.eatsease.ui.recipes.RecipeViewModel
 import com.rockettsttudio.eatsease.App
 import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.data.models.Recipe
+import com.rockettsttudio.eatsease.ui.MainActivity
 
 
 class RecipesFragment : Fragment() {
@@ -85,10 +87,6 @@ class RecipesFragment : Fragment() {
             recipeViewModel.setRecipes()
             fetchToAdapter(apiKey, number, "drink")
         }
-        binding.settingsImageButton.setOnClickListener {
-            val navController = findNavController()
-            navController.navigate(R.id.action_navigation_recipes_to_settingsFragment)
-        }
     }
 
     fun fetchToAdapter(apiKey: String, number: Int, tags: String) {
@@ -118,6 +116,9 @@ class RecipesFragment : Fragment() {
             putString("ingredients", ingredients)// Pass the clicked recipe to the RecipeDetailsActivity
             putString("instructions", recipe.instructions)
         }
+
+        val mainActivity = activity as MainActivity
+        mainActivity.setTopNavigationVisibility(View.GONE)
         findNavController().navigate(R.id.action_navigation_recipes_to_recipeDetailsFragment, bundle)
     }
 
