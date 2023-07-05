@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:numStars="5"
-                    android:progressBackgroundTint="@color/gris"
+                    android:progressBackgroundTint="@color/black"
                     android:progressTint="@android:color/holo_orange_dark"
                     android:rating="0"
                     android:scaleX="1.0"
