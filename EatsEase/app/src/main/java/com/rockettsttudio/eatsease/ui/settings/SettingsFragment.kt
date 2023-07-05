@@ -80,6 +80,7 @@ class SettingsFragment : Fragment() {
         popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
             when (menuItem.itemId) {
                 R.id.menu_item_faq -> {
+                    showFAQFragment()
                     true
                 }
                 R.id.menu_item_contact -> {
@@ -123,6 +124,8 @@ class SettingsFragment : Fragment() {
             Toast.makeText(requireContext(), "No se encontró ninguna aplicación compatible para abrir el enlace.", Toast.LENGTH_SHORT).show()
         }
     }
-
-
+    private fun showFAQFragment() {
+        val faqFragment = FAQFragment()
+        faqFragment.show(parentFragmentManager, "faq_dialog")
+    }
 }
