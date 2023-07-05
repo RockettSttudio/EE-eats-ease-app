@@ -1,11 +1,18 @@
 package com.rockettsttudio.eatsease.ui.settings
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,6 +62,9 @@ class SettingsFragment : Fragment() {
         binding.LogoutButton.setOnClickListener {
             navigateToLogin()
         }
+        binding.linearLayoutHELPCENTERSettings.setOnClickListener{
+            helpCenter()
+        }
     }
 
     private fun navigateToLogin() {
@@ -63,5 +73,56 @@ class SettingsFragment : Fragment() {
         startActivity(intent)
         requireActivity().finish()
     }
+    private fun helpCenter() {
+        val popupMenu = PopupMenu(requireContext(), binding.linearLayoutHELPCENTERSettings, GravityCompat.END)
+        popupMenu.menuInflater.inflate(R.menu.help_center_menu, popupMenu.menu)
+
+        popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_item_faq -> {
+                    true
+                }
+                R.id.menu_item_contact -> {
+                    sendURL()
+                    true
+                }
+                R.id.menu_item_correo -> {
+                    sendEmail()
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
+    }
+
+    private fun sendEmail() {
+        val recipientEmail = "suppor1eatsease@gmail.com"
+        val subject = "Consulta"
+
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipientEmail))
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+
+        try {
+            startActivity(Intent.createChooser(intent, "Enviar correo electrónico"))
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), "No se encontró ninguna aplicación de correo electrónico.", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun sendURL() {
+        val url = "https://www.eatseasess.lat"
+
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), "No se encontró ninguna aplicación compatible para abrir el enlace.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
 }
