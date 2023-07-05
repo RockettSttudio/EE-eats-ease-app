@@ -52,7 +52,7 @@ class SettingsFragment : Fragment() {
                 navController.navigateUp()
             }
         }
-        binding.linearLayoutSecuritySettings.setOnClickListener {
+        binding.LogoutButton.setOnClickListener {
             navigateToLogin()
         }
     }

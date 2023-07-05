@@ -86,12 +86,22 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/flecha_correcta" />
 
-
-
     </LinearLayout>
 
-
-
-
+    <Button
+        android:id="@+id/Logout_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/red1"
+        android:fontFamily="@font/roboto"
+        android:text="Logout"
+        android:textSize="@dimen/medium_gap"
+        android:textStyle="bold"
+        app:icon="@drawable/boton_de_encendido_apagado"
+        app:iconSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
