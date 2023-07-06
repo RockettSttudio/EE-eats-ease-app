@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val isTablet = resources.getBoolean(R.bool.isTablet)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.nav_view)
+
 
         if (isTablet) {
             val navController2 = findNavController(R.id.nav_host_fragment_activity_main2)
@@ -45,11 +47,13 @@ class MainActivity : AppCompatActivity() {
             if (isTablet) {
                 val navController2 = findNavController(R.id.nav_host_fragment_activity_main2)
                 setTopNavigationVisibility(View.GONE)
+                setBottomNavigationVisibility(View.GONE)
                 navController2.navigate(R.id.navigation_Settings)
                 navController.navigate(R.id.blankFragment)
 
             }else{
                 setTopNavigationVisibility(View.GONE)
+                setBottomNavigationVisibility(View.GONE)
                 navController.navigate(R.id.navigation_Settings)
             }
         }
@@ -59,9 +63,41 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
+    override fun onBackPressed() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        when (navController.currentDestination?.id) {
+            R.id.navigation_home, R.id.navigation_recipes, R.id.navigation_saved -> {
+                setTopNavigationVisibility(View.VISIBLE)
+                setBottomNavigationVisibility(View.VISIBLE)
+                navController.navigateUp()
+            }
+            R.id.navigation_Settings -> {
+                setTopNavigationVisibility(View.VISIBLE)
+                setBottomNavigationVisibility(View.VISIBLE)
+                navController.navigateUp()
+            }
+            R.id.recipeDetailsFragment -> {
+                setTopNavigationVisibility(View.VISIBLE)
+                setBottomNavigationVisibility(View.VISIBLE)
+                navController.navigateUp()
+            }
+            else -> {
+                super.onBackPressedDispatcher.onBackPressed()
+            }
+        }
+    }
+
+
     fun setTopNavigationVisibility(visibility: Int) {
         val topNavigationView: NavigationView = findViewById(R.id.top_navigation)
         topNavigationView.visibility = visibility
     }
+
+    fun setBottomNavigationVisibility(visibility: Int) {
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.nav_view)
+        bottomNavigationView.visibility = visibility
+    }
+
 
 }

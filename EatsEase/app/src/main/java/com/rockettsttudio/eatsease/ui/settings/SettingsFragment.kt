@@ -52,10 +52,12 @@ class SettingsFragment : Fragment() {
             if (isTablet) {
                 val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
                 mainActivity.setTopNavigationVisibility(View.VISIBLE)
+                mainActivity.setBottomNavigationVisibility(View.VISIBLE)
                 navController.navigateUp()
                 navController2.navigateUp()
             }else{
                 mainActivity.setTopNavigationVisibility(View.VISIBLE)
+                mainActivity.setBottomNavigationVisibility(View.VISIBLE)
                 navController.navigateUp()
             }
         }
