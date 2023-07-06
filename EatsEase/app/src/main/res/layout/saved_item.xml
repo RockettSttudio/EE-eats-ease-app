@@ -6,7 +6,7 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/card_background_color"
     android:clickable="true"
     android:focusable="true"
     app:cardUseCompatPadding="true">
@@ -38,7 +38,7 @@
                 android:layout_margin="6dp"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:text="Title of the Recipe"
-                android:textColor="#1B2631"
+                android:textColor="@color/plain_text_color"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:maxLines="2"
@@ -62,7 +62,7 @@
                 android:ellipsize="end"
                 android:fadeScrollbars="true"
                 android:text="Description of the recipe"
-                android:textColor="@color/textColorSecondary"
+                android:textColor="@color/description_text_color"
                 android:textSize="14sp"
                 tools:ignore="HardcodedText" />
 

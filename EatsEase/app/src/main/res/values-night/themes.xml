@@ -6,8 +6,8 @@
         <item name="colorPrimaryVariant">#020429</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/pink_base</item>
-        <item name="colorSecondaryVariant">@color/pink_base</item>
+        <item name="colorSecondary">@color/cardview_background</item>
+        <item name="colorSecondaryVariant">@color/cardview_background</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

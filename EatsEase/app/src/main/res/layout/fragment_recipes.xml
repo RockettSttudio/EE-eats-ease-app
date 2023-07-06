@@ -17,7 +17,7 @@
         android:layout_marginStart="@dimen/min_gap"
         android:layout_marginTop="@dimen/min_gap"
         android:layout_marginEnd="@dimen/min_gap"
-        android:background="@color/mint_base"
+        android:background="@color/item_background"
         app:cardCornerRadius="@dimen/medium_gap"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true"
@@ -28,7 +28,7 @@
         <SearchView
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:background="@color/mint_base"
+            android:background="@color/item_background"
             android:queryHint="Search Recipes" />
 
     </androidx.cardview.widget.CardView>
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="+ Ingredients"
-        android:textColor="@color/green_base"
+        android:textColor="@color/categories_button_color"
         app:backgroundTint="@color/white"
         app:cornerRadius="24dp"
         app:layout_constraintEnd_toEndOf="parent"

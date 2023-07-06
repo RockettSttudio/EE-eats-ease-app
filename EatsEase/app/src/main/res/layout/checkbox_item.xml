@@ -5,9 +5,9 @@
     android:layout_height="60dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:background="@color/pink_base"
+    android:background="@color/cardview_background"
     android:elevation="16dp"
-    app:cardBackgroundColor="@color/mint_base"
+    app:cardBackgroundColor="@color/item_background"
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true">
 

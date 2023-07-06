@@ -38,7 +38,7 @@ class RecipesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        
 
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
 

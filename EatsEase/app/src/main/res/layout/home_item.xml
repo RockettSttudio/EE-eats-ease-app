@@ -45,7 +45,7 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/didact_gothic"
                     android:textSize="20dp"
-                    android:textColor="#1B2631"
+                    android:textColor="@color/plain_text_color"
                     tools:ignore="HardcodedText" />
 
                 <TextView
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="6dp"
                     android:textStyle="normal"
-                    android:textColor="#2E4053"
+                    android:textColor="@color/description_text_color"
                     android:fontFamily="@font/roboto_light"
                     android:textAlignment="center"
                     android:text="este es una descripcion de prueba para las cartas a mostrar"
