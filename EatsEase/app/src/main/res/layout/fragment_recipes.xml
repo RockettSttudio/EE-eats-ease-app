@@ -330,6 +330,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/italian_cuisine_card_view"
                 app:cardUseCompatPadding="true"
                 android:clickable="true"
                 app:cardCornerRadius="15dp"
@@ -348,7 +349,91 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:src="@drawable/asian_cuisine_img"
+                        android:src="@drawable/italian_cuisine_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="ITALIAN"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/random_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/random_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="RANDOM"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/snack_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/snacks_img"
                         android:scaleType="centerCrop"/>
 
                     <TextView
@@ -361,7 +446,49 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:layout_margin="16dp"
-                        android:text="ASIAN"
+                        android:text="SNACK"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/lunch_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/lunch_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="LUNCH"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:textStyle="bold" />

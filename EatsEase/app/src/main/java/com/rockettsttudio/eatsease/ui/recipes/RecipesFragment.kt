@@ -56,13 +56,13 @@ class RecipesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (recipeViewModel.randomRecipes.value == null) {
-            fetchToAdapter("defe9d5425bf4785b81f35a1827edb2a", 15, "")
+            fetchToAdapter("defe9d5425bf4785b81f35a1827edb2a", 40, "")
         } else {
             recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
             recipeAdapter.notifyDataSetChanged()
         }
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
-        val number = 30
+        val number = 40
         binding.asianCuisineCardView.setOnClickListener {
             recipeViewModel.setRecipes()
             fetchToAdapter(apiKey, number, "asian")
@@ -82,6 +82,22 @@ class RecipesFragment : Fragment() {
         binding.drinksCardView.setOnClickListener {
             recipeViewModel.setRecipes()
             fetchToAdapter(apiKey, number, "drink")
+        }
+        binding.italianCuisineCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "italian")
+        }
+        binding.randomCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "")
+        }
+        binding.snackCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "snacks")
+        }
+        binding.lunchCardView.setOnClickListener {
+            recipeViewModel.setRecipes()
+            fetchToAdapter(apiKey, number, "lunch")
         }
     }
 
