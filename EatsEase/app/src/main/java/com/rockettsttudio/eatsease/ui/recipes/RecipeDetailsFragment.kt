@@ -17,6 +17,7 @@ import android.content.Intent
 import android.provider.CalendarContract
 import android.widget.Button
 import android.widget.CheckBox
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -26,6 +27,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
+import com.rockettsttudio.eatsease.R
+import com.rockettsttudio.eatsease.ui.MainActivity
+import android.content.SharedPreferences
+import android.widget.RatingBar
+
 
 class RecipeDetailsFragment : Fragment() {
 
@@ -35,11 +41,17 @@ class RecipeDetailsFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var currentUser: FirebaseUser
     private lateinit var favoritesRef: DatabaseReference
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var ratingBar: RatingBar
+    private var currentRating: Float = 0.0f
+
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         // Set up Firebase Authentication
         auth = FirebaseAuth.getInstance()
         currentUser = auth.currentUser!!
@@ -55,7 +67,10 @@ class RecipeDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val mainActivity = activity as MainActivity
+
         binding.backFlechaReceta.setOnClickListener {
+            mainActivity.setTopNavigationVisibility(View.VISIBLE) // Show the top_navigation view
             findNavController().navigateUp()
         }
 
@@ -89,6 +104,18 @@ class RecipeDetailsFragment : Fragment() {
                 .setData(CalendarContract.Events.CONTENT_URI)
                 .putExtra(CalendarContract.Events.TITLE, binding.titleDetailView.text.toString())
             startActivity(intent)
+        }
+
+        ratingBar = binding.ratingBar
+        sharedPreferences = requireContext().getSharedPreferences("RecipeRatings", Context.MODE_PRIVATE)
+        currentRating = sharedPreferences.getFloat(recipeTitle, 0.0f)
+        ratingBar.rating = currentRating
+
+        ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
+            currentRating = rating
+            val editor = sharedPreferences.edit()
+            editor.putFloat(recipeTitle, currentRating)
+            editor.apply()
         }
 
         onBackPressedCallback = object : OnBackPressedCallback(true) {
@@ -183,73 +210,65 @@ class RecipeDetailsFragment : Fragment() {
                                 "imgUrl" to imgUrl
                             )
 
-                            // Set the data in the database under the generated favoriteId
+                            // Set the data for the new favorite entry
                             favoriteEntry.setValue(favoriteData)
                                 .addOnSuccessListener {
-                                    // Data successfully added to the database
                                     Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show()
                                 }
                                 .addOnFailureListener {
-                                    // Error occurred while adding data to the database
+                                    // Handle the failure case
                                     Toast.makeText(context, "Failed to add to favorites", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {
-                        // Handle the error
-                        Toast.makeText(context, "Failed to check favorite status", Toast.LENGTH_SHORT).show()
+                        // Handle the database error
+                        Toast.makeText(context, "Database error", Toast.LENGTH_SHORT).show()
                     }
                 })
+        } else {
+            // User is not authenticated, show a message or handle it accordingly
+            Toast.makeText(context, "User not authenticated", Toast.LENGTH_SHORT).show()
         }
     }
 
-
-
     private fun removeFromFavorites(context: Context, recipeTitle: String) {
+        // Check if the user is authenticated
         val currentUser = auth.currentUser
         if (currentUser != null) {
+            // Get a reference to the Firebase Realtime Database
             val database = FirebaseDatabase.getInstance()
             val favoritesRef = database.reference
                 .child("users")
                 .child(currentUser.uid)
                 .child("favorites")
 
+            // Query the database to find the favorite to remove
             favoritesRef.orderByChild("recipeTitle")
                 .equalTo(recipeTitle)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            // Recipe found, remove it from favorites
-                            val favoriteSnapshot = dataSnapshot.children.first()
-                            favoriteSnapshot.ref.removeValue()
-                                .addOnSuccessListener {
-                                    // Successfully removed from favorites
-                                    Toast.makeText(context, "Removed from favorites", Toast.LENGTH_SHORT).show()
-                                }
-                                .addOnFailureListener {
-                                    // Error occurred while removing from favorites
-                                    Toast.makeText(context, "Failed to remove from favorites", Toast.LENGTH_SHORT).show()
-                                }
+                            // Loop through the matching favorites and remove them
+                            for (favoriteSnapshot in dataSnapshot.children) {
+                                favoriteSnapshot.ref.removeValue()
+                            }
+                            Toast.makeText(context, "Removed from favorites", Toast.LENGTH_SHORT).show()
                         } else {
-                            // Recipe not found in favorites
-                            Toast.makeText(context, "Recipe not found in favorites", Toast.LENGTH_SHORT).show()
+                            // Favorite not found, show a message or handle it accordingly
+                            Toast.makeText(context, "Favorite not found", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onCancelled(databaseError: DatabaseError) {
-                        // Handle the error
-                        Toast.makeText(context, "Failed to remove from favorites", Toast.LENGTH_SHORT).show()
+                        // Handle the database error
+                        Toast.makeText(context, "Database error", Toast.LENGTH_SHORT).show()
                     }
                 })
+        } else {
+            // User is not authenticated, show a message or handle it accordingly
+            Toast.makeText(context, "User not authenticated", Toast.LENGTH_SHORT).show()
         }
-    }
-
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        onBackPressedCallback?.remove()
-        onBackPressedCallback = null
     }
 }

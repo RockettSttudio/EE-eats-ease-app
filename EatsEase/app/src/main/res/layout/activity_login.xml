@@ -28,7 +28,7 @@
         android:layout_marginStart="70dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="70dp"
-        android:hint="@string/username"
+        android:hint="@string/email"
         app:boxCornerRadiusBottomEnd="15sp"
         app:boxCornerRadiusBottomStart="15sp"
         app:boxCornerRadiusTopEnd="15sp"
@@ -147,7 +147,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

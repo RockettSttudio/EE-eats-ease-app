@@ -8,15 +8,18 @@ import androidx.core.text.HtmlCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.rockettsttudio.eatsease.databinding.FragmentRecipesBinding
 import com.rockettsttudio.eatsease.ui.ViewModelFactory
 import com.rockettsttudio.eatsease.ui.recipes.RecipeViewModel
 import com.rockettsttudio.eatsease.App
 import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.data.models.Recipe
+import com.rockettsttudio.eatsease.ui.MainActivity
 
 
 class RecipesFragment : Fragment() {
@@ -61,6 +64,8 @@ class RecipesFragment : Fragment() {
             recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
             recipeAdapter.notifyDataSetChanged()
         }
+        val apikey_roque ="00b02f1c12194c83ac59aa715644f859"
+        val apikey_moran ="74f6c26b27ae445c80b6c726383271c6"
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
         val number = 40
         binding.asianCuisineCardView.setOnClickListener {
@@ -73,11 +78,11 @@ class RecipesFragment : Fragment() {
         }
         binding.mexicanCuisineCardView.setOnClickListener {
             recipeViewModel.setRecipes()
-            fetchToAdapter(apiKey, number, "mexican")
+            fetchToAdapter(apikey_roque, number, "mexican")
         }
         binding.dessertCardView.setOnClickListener {
             recipeViewModel.setRecipes()
-            fetchToAdapter(apiKey, number, "dessert")
+            fetchToAdapter(apikey_moran, number, "dessert")
         }
         binding.drinksCardView.setOnClickListener {
             recipeViewModel.setRecipes()
@@ -115,6 +120,10 @@ class RecipesFragment : Fragment() {
 
     fun onItemClick(recipe: Recipe) {
         // Handle item click event
+        val mainActivity = activity as MainActivity
+        val isTablet = resources.getBoolean(R.bool.isTablet)
+        val navController = findNavController()
+
         val bundle = Bundle().apply {
             putString("title", recipe.title)
             putString("image", recipe.image)
@@ -128,7 +137,15 @@ class RecipesFragment : Fragment() {
             putString("ingredients", ingredients)// Pass the clicked recipe to the RecipeDetailsActivity
             putString("instructions", recipe.instructions)
         }
-        findNavController().navigate(R.id.action_navigation_recipes_to_recipeDetailsFragment, bundle)
+
+        if (isTablet) {
+            val navController2 = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
+            mainActivity.setTopNavigationVisibility(View.VISIBLE)
+            navController2.navigate(R.id.recipeDetailsFragment, bundle)
+        } else {
+            mainActivity.setTopNavigationVisibility(View.GONE)
+            navController.navigate(R.id.action_navigation_recipes_to_recipeDetailsFragment, bundle)
+        }
     }
 
     override fun onDestroyView() {

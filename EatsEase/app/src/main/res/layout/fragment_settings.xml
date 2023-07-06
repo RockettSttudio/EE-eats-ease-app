@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_settings"
+    tools:context=".ui.settings.SettingsFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -22,9 +24,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:background="@color/white"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@android:color/transparent"
             android:rotationY="-180"
             android:src="@drawable/baseline_arrow_forward_24"
             android:clickable="true"/>
@@ -32,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textColor="@color/verdeapp"
             android:textSize="@dimen/big_gap"/>
 
@@ -40,166 +42,186 @@
             android:id="@+id/Eats_Ease_settings"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="15dp"
             android:src="@drawable/headline"
             android:scaleType="fitStart"
             android:adjustViewBounds="true" />
 
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view_settings"
-        android:layout_width="411dp"
-        android:layout_height="70dp"
-        android:background="?android:attr/windowBackground"
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_Account_settings"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/Account_settings"
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/roboto"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="100dp"
+                android:layout_weight="1"
+                android:text="Account"
+                android:textColor="@color/blackapp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/arrow_account"
+                android:layout_width="40dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/flecha_correcta" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_Security_settings"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/security_settings"
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="100dp"
+                android:layout_weight="1"
+                android:text="Security"
+                android:textColor="@color/blackapp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/arrow_security"
+                android:layout_width="40dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/flecha_correcta" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_APP_settings"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/APP_settings"
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:text="App Settings"
+                android:textColor="@color/blackapp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/APP_security"
+                android:layout_width="40dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/flecha_correcta" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_HELPCENTER_settings"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/HELP_settings"
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="100dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:text="Help center"
+                android:textColor="@color/blackapp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/HELP_security"
+                android:layout_width="40dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/flecha_correcta" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Logout_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/red1"
+        android:fontFamily="@font/roboto"
+        android:text="Logout"
+        android:textSize="@dimen/medium_gap"
+        android:textStyle="bold"
+        app:icon="@drawable/boton_de_encendido_apagado"
+        app:iconSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_nav_menu" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout_account_settings"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="140dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:clickable="true">
-
-        <TextView
-            android:id="@+id/account_settings"
-            android:layout_width="175dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:text="Account"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/image_view_receta"
-            android:layout_width="40dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/flecha_correcta" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_security_settings"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_account_settings"
-        android:clickable="true">
-
-        <TextView
-            android:id="@+id/security_settings"
-            android:layout_width="175dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:text="Security"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/arrow_security"
-            android:layout_width="40dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/flecha_correcta" />
-
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_app_settings"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_security_settings"
-        android:clickable="true">
-
-        <TextView
-            android:id="@+id/app_settings"
-            android:layout_width="175dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:text="App Settings"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/arrow_app_settings"
-            android:layout_width="40dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/flecha_correcta" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_help_center_settings"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_app_settings"
-        app:layout_constraintVertical_bias="0.0"
-        android:clickable="true">
-
-        <TextView
-            android:id="@+id/name_receta"
-            android:layout_width="175dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:text="Help Center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/arrow_help_center_settings"
-            android:layout_width="40dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/flecha_correcta" />
-    </LinearLayout>
-
-
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

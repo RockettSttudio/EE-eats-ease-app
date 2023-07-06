@@ -15,7 +15,9 @@
     <color name="rosaapp">#E5D0E3</color>
     <color name="celesteapp">#CCFBFE</color>
     <color name="azulgoogle">#4285F4</color>
-    <color name="gris">#c9c9c9</color>
+    <color name="gris">#F0F0F0</color>
     <color name="red1">#FF0000</color>
+    <color name="textColorSecondary">#292929</color>
+    <color name="faded_line">#F4F4F4</color>
 
 </resources>

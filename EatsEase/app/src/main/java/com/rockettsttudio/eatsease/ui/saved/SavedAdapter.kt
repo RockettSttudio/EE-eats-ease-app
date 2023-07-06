@@ -53,7 +53,7 @@ class SavedAdapter(
 
         fun bind(recipe: SavedRecipes) {
             titleTextView.text = recipe.recipeTitle
-            descTextView.text = recipe.recipeSummary.substring(0, 20)
+            descTextView.text = recipe.recipeSummary.substring(0, 120)
             Glide.with(itemView.context)
                 .load(recipe.imgUrl)
                 .placeholder(R.drawable.svg_layer4)

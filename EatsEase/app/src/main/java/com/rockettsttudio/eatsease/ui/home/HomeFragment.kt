@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
