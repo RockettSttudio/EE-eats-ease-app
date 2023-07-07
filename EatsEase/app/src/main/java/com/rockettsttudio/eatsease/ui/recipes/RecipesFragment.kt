@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.PopupMenu
 import android.widget.SearchView
 import androidx.core.text.HtmlCompat
@@ -121,22 +123,35 @@ class RecipesFragment : Fragment() {
         })
         binding.actionIngredients.setOnClickListener {
             val availableIngredients = listOf("Tomato", "Onion", "Bean", "chocolate", "milk", "sugar", "vanilla", "eggs", "bread", "coffee", "cream",
-                "juice", "salt", "mangoes", "oil", "cheese", "chicken", "garlic", "water", "jalapeño", "orange", "pineapple", "lemon", "coconut", "ice",
-            ) // Agrega aquí los ingredientes disponibles
+                "juice", "salt", "mangoes", "oil", "cheese", "chicken", "garlic", "water", "jalapeño", "orange", "pineapple", "lemon", "coconut", "ice"
+            ) // Agrega aquí los ingredientes
 
             val checkedItems = BooleanArray(availableIngredients.size) { selectedIngredients.contains(availableIngredients[it]) }
 
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Select Ingredients")
-            builder.setMultiChoiceItems(availableIngredients.toTypedArray(), checkedItems) { _, position, isChecked ->
-                val ingredient = availableIngredients[position]
-                if (isChecked) {
-                    selectedIngredients.add(ingredient)
-                } else {
-                    selectedIngredients.remove(ingredient)
+            val inflater = LayoutInflater.from(requireContext())
+            val dialogView = inflater.inflate(R.layout.dialog_select_ingredients, null)
+            val listView = dialogView.findViewById<ListView>(R.id.listIngredients)
+
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_multiple_choice, availableIngredients)
+            listView.adapter = adapter
+            listView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
+            for ((index, ingredient) in availableIngredients.withIndex()) {
+                if (selectedIngredients.contains(ingredient)) {
+                    listView.setItemChecked(index, true)
                 }
             }
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setView(dialogView)
             builder.setPositiveButton("Apply") { _, _ ->
+                val selectedPositions = listView.checkedItemPositions
+                val selectedIngredients = mutableListOf<String>()
+                for (position in 0 until selectedPositions.size()) {
+                    if (selectedPositions.valueAt(position)) {
+                        val ingredient = availableIngredients[selectedPositions.keyAt(position)]
+                        selectedIngredients.add(ingredient)
+                    }
+                }
                 filterRecipesByIngredient(selectedIngredients)
             }
             builder.setNegativeButton("Cancel", null)
@@ -144,8 +159,6 @@ class RecipesFragment : Fragment() {
             val dialog = builder.create()
             dialog.show()
         }
-
-
     }
 
     private fun filterRecipesByIngredient(ingredients: List<String>) {

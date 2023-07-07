@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:drawable="@color/verdeapp" />
+        </layer-list>
+    </item>
+    <item android:state_checked="false">
+        <layer-list>
+            <!-- Define aquí el color de fondo cuando el elemento no está seleccionado -->
+            <item android:drawable="@color/white" />
+        </layer-list>
+    </item>
+</selector>
