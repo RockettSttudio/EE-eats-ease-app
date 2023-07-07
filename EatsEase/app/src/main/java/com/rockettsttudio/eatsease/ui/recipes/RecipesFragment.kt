@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.core.text.HtmlCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
@@ -28,9 +29,8 @@ class RecipesFragment : Fragment() {
     private lateinit var recipeViewModel: RecipeViewModel
     private lateinit var recipeRecyclerView: RecyclerView
     private lateinit var recipeAdapter: RecipeAdapter
+    private var originalRecipes: List<Recipe> = emptyList()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,7 +38,7 @@ class RecipesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        
+
 
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
 
@@ -104,18 +104,43 @@ class RecipesFragment : Fragment() {
             recipeViewModel.setRecipes()
             fetchToAdapter(apiKey, number, "lunch")
         }
+        //  SearchRecipe two
+        binding.searchRecipesRecipes.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                filterRecipes(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterRecipes(newText)
+                return true
+            }
+        })
     }
 
-    fun fetchToAdapter(apiKey: String, number: Int, tags: String) {
+
+    private fun fetchToAdapter(apiKey: String, number: Int, tags: String) {
         recipeViewModel.fetchRandomRecipes(apiKey, number, tags)
         recipeViewModel.randomRecipes.observe(viewLifecycleOwner) { recipes ->
             if (recipes != null && recipes.isNotEmpty()) {
-                recipeAdapter.recipes = recipes // Update the adapter's data
-                recipeAdapter.notifyDataSetChanged() // Notify the adapter of the data change
+                originalRecipes = recipes // Guarda la lista original de recetas
+                recipeAdapter.recipes = recipes // Actualiza adapter data
+                recipeAdapter.notifyDataSetChanged() // Notifica de cambios en la data
             } else {
                 // Handle the error or show a message to the user
             }
         }
+    }
+    private fun filterRecipes(query: String) {
+        val filteredRecipes = if (query.isNotBlank()) {
+            originalRecipes.filter { recipe ->
+                recipe.title.contains(query, ignoreCase = true)
+            }
+        } else {
+            originalRecipes
+        }
+        recipeAdapter.recipes = filteredRecipes // Actualiza los datos del adaptador con las recetas filtradas
+        recipeAdapter.notifyDataSetChanged() // Notifica de cambios en la data
     }
 
     fun onItemClick(recipe: Recipe) {
