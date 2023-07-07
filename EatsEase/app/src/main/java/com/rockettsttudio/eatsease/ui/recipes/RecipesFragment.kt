@@ -64,7 +64,7 @@ class RecipesFragment : Fragment() {
             recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
             recipeAdapter.notifyDataSetChanged()
         }
-        val apikey_roque ="00b02f1c12194c83ac59aa715644f859"
+        val apikey_roque ="4deee4c3868e4708a36ec1b4fc07354f"
         val apikey_moran ="74f6c26b27ae445c80b6c726383271c6"
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
         val number = 40
