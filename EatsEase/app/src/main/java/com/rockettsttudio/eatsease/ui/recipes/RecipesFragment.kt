@@ -1,9 +1,11 @@
 package com.rockettsttudio.eatsease.ui.recipes
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.SearchView
 import androidx.core.text.HtmlCompat
 import androidx.core.view.get
@@ -24,7 +26,7 @@ import com.rockettsttudio.eatsease.ui.MainActivity
 
 
 class RecipesFragment : Fragment() {
-
+    private val selectedIngredients = mutableListOf<String>()
     private var _binding: FragmentRecipesBinding? = null
     private lateinit var recipeViewModel: RecipeViewModel
     private lateinit var recipeRecyclerView: RecyclerView
@@ -64,8 +66,9 @@ class RecipesFragment : Fragment() {
             recipeAdapter.recipes = recipeViewModel.randomRecipes.value ?: emptyList()
             recipeAdapter.notifyDataSetChanged()
         }
-        val apikey_roque ="4deee4c3868e4708a36ec1b4fc07354f"
+        val apikey_roque ="00b02f1c12194c83ac59aa715644f859"
         val apikey_moran ="74f6c26b27ae445c80b6c726383271c6"
+        val apiKey_moran_2 = "ccbf268bebb744bd915a50dd48e0d88c"
         val apiKey = "defe9d5425bf4785b81f35a1827edb2a"
         val number = 40
         binding.asianCuisineCardView.setOnClickListener {
@@ -78,7 +81,7 @@ class RecipesFragment : Fragment() {
         }
         binding.mexicanCuisineCardView.setOnClickListener {
             recipeViewModel.setRecipes()
-            fetchToAdapter(apikey_roque, number, "mexican")
+            fetchToAdapter(apiKey_moran_2, number, "mexican")
         }
         binding.dessertCardView.setOnClickListener {
             recipeViewModel.setRecipes()
@@ -116,7 +119,50 @@ class RecipesFragment : Fragment() {
                 return true
             }
         })
+        binding.actionIngredients.setOnClickListener {
+            val availableIngredients = listOf("Tomato", "Onion", "Bean", "chocolate", "milk", "sugar", "vanilla", "eggs", "bread", "coffee", "cream",
+                "juice", "salt", "mangoes", "oil", "cheese", "chicken", "garlic", "water", "jalapeño", "orange", "pineapple", "lemon", "coconut", "ice",
+            ) // Agrega aquí los ingredientes disponibles
+
+            val checkedItems = BooleanArray(availableIngredients.size) { selectedIngredients.contains(availableIngredients[it]) }
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Select Ingredients")
+            builder.setMultiChoiceItems(availableIngredients.toTypedArray(), checkedItems) { _, position, isChecked ->
+                val ingredient = availableIngredients[position]
+                if (isChecked) {
+                    selectedIngredients.add(ingredient)
+                } else {
+                    selectedIngredients.remove(ingredient)
+                }
+            }
+            builder.setPositiveButton("Apply") { _, _ ->
+                filterRecipesByIngredient(selectedIngredients)
+            }
+            builder.setNegativeButton("Cancel", null)
+
+            val dialog = builder.create()
+            dialog.show()
+        }
+
+
     }
+
+    private fun filterRecipesByIngredient(ingredients: List<String>) {
+        val filteredRecipes = originalRecipes.filter { recipe ->
+            ingredients.all { ingredient ->
+                recipe.extendedIngredients.any { extendedIngredient ->
+                    extendedIngredient.name.contains(ingredient, ignoreCase = true)
+                }
+            }
+        }
+
+        recipeAdapter.recipes = filteredRecipes
+        recipeAdapter.notifyDataSetChanged()
+    }
+
+
+
 
 
     private fun fetchToAdapter(apiKey: String, number: Int, tags: String) {
