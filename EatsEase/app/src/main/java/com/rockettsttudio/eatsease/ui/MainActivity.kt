@@ -58,6 +58,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id in appBarConfiguration.topLevelDestinations) {
+                setTopNavigationVisibility(View.VISIBLE)
+                setBottomNavigationVisibility(View.VISIBLE)
+            } else {
+                setTopNavigationVisibility(View.GONE)
+                setBottomNavigationVisibility(View.VISIBLE)
+            }
+        }
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         supportActionBar?.hide()
@@ -98,6 +108,4 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.nav_view)
         bottomNavigationView.visibility = visibility
     }
-
-
 }
