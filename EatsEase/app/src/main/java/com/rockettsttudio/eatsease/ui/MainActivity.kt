@@ -5,20 +5,16 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val isTablet = resources.getBoolean(R.bool.isTablet)
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.nav_view)
 
 
         if (isTablet) {
@@ -63,8 +58,14 @@ class MainActivity : AppCompatActivity() {
                 setTopNavigationVisibility(View.VISIBLE)
                 setBottomNavigationVisibility(View.VISIBLE)
             } else {
-                setTopNavigationVisibility(View.GONE)
-                setBottomNavigationVisibility(View.VISIBLE)
+                if (navController.currentDestination?.id == R.id.navigation_Settings){
+                    setTopNavigationVisibility(View.GONE)
+                    setBottomNavigationVisibility(View.GONE)
+                } else {
+                    setTopNavigationVisibility(View.GONE)
+                    setBottomNavigationVisibility(View.VISIBLE)
+                }
+
             }
         }
 
@@ -83,8 +84,8 @@ class MainActivity : AppCompatActivity() {
                 navController.navigateUp()
             }
             R.id.navigation_Settings -> {
-                setTopNavigationVisibility(View.VISIBLE)
-                setBottomNavigationVisibility(View.VISIBLE)
+                setTopNavigationVisibility(View.GONE)
+                setBottomNavigationVisibility(View.GONE)
                 navController.navigateUp()
             }
             R.id.recipeDetailsFragment -> {
@@ -97,7 +98,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 
     fun setTopNavigationVisibility(visibility: Int) {
         val topNavigationView: NavigationView = findViewById(R.id.top_navigation)
