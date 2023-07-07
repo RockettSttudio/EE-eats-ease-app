@@ -1,7 +1,5 @@
 package com.rockettsttudio.eatsease.ui.recipes
 
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,21 +13,16 @@ import com.bumptech.glide.Glide
 import com.rockettsttudio.eatsease.databinding.FragmentRecipeDetailsBinding
 import android.content.Intent
 import android.provider.CalendarContract
-import android.widget.Button
-import android.widget.CheckBox
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
-import com.rockettsttudio.eatsease.R
 import com.rockettsttudio.eatsease.ui.MainActivity
 import android.content.SharedPreferences
+import android.util.Log
 import android.widget.RatingBar
 
 
@@ -194,11 +187,10 @@ class RecipeDetailsFragment : Fragment() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         if (dataSnapshot.exists()) {
                             // Favorite already exists, show a message or handle it accordingly
-                            Toast.makeText(context, "Already added to favorites", Toast.LENGTH_SHORT).show()
+                            Log.d("SavedFragment", "Recipe already added to favorites")
                         } else {
                             // Create a new entry in the "favorites" node
                             val favoriteEntry = favoritesRef.push()
-                            val favoriteId = favoriteEntry.key
 
                             // Create a map of the data you want to store
                             val favoriteData = hashMapOf(
@@ -212,9 +204,6 @@ class RecipeDetailsFragment : Fragment() {
 
                             // Set the data for the new favorite entry
                             favoriteEntry.setValue(favoriteData)
-                                .addOnSuccessListener {
-                                    Toast.makeText(context, "Added to favorites", Toast.LENGTH_SHORT).show()
-                                }
                                 .addOnFailureListener {
                                     // Handle the failure case
                                     Toast.makeText(context, "Failed to add to favorites", Toast.LENGTH_SHORT).show()
@@ -254,7 +243,6 @@ class RecipeDetailsFragment : Fragment() {
                             for (favoriteSnapshot in dataSnapshot.children) {
                                 favoriteSnapshot.ref.removeValue()
                             }
-                            Toast.makeText(context, "Removed from favorites", Toast.LENGTH_SHORT).show()
                         } else {
                             // Favorite not found, show a message or handle it accordingly
                             Toast.makeText(context, "Favorite not found", Toast.LENGTH_SHORT).show()

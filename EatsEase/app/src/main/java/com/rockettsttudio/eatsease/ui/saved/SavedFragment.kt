@@ -6,22 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.rockettsttudio.eatsease.R
-import com.rockettsttudio.eatsease.data.models.Recipe
 import com.rockettsttudio.eatsease.data.models.SavedRecipes
 import com.rockettsttudio.eatsease.databinding.FragmentSavedBinding
+import com.rockettsttudio.eatsease.repositories.SavedRecipeRepository
 import com.rockettsttudio.eatsease.ui.MainActivity
 
 class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
@@ -29,7 +20,9 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
     private var _binding: FragmentSavedBinding? = null
     private val binding get() = _binding!!
 
+
     private lateinit var savedAdapter: SavedAdapter
+    private lateinit var recipeRepository: SavedRecipeRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,21 +41,17 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
         binding.recyclerviewSaved.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerviewSaved.adapter = savedAdapter
 
+        recipeRepository = SavedRecipeRepository()
 
-        // Add your logic to fetch the list of saved recipes from the database
-        // and pass it to the adapter using setRecipes() method
-        val savedRecipes = getSavedRecipesFromDatabase()
-        savedAdapter.setRecipes(savedRecipes)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        // Observe the saved recipes from the repository
+        recipeRepository.getSavedRecipes().observe(viewLifecycleOwner) { savedRecipes ->
+            savedAdapter.setRecipes(savedRecipes)
+        }
     }
 
     override fun onItemClick(recipe: SavedRecipes) {
         // Handle item click event
-        val mainActivity = activity as MainActivity
+        val mainActivity = requireActivity() as MainActivity
         val isTablet = resources.getBoolean(R.bool.isTablet)
         val navController = findNavController()
 
@@ -86,30 +75,12 @@ class SavedFragment : Fragment(), SavedAdapter.OnItemClickListener {
         }
     }
 
-    private fun getSavedRecipesFromDatabase(): List<SavedRecipes> {
-        val database = FirebaseDatabase.getInstance()
-        val userId = FirebaseAuth.getInstance().currentUser?.uid
-        val recipesRef = userId?.let { database.getReference("users").child(it).child("favorites") }
-        val savedRecipes = mutableListOf<SavedRecipes>()
-
-        recipesRef?.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                savedRecipes.clear()
-                for (recipeSnapshot in dataSnapshot.children) {
-                    val recipe = recipeSnapshot.getValue(SavedRecipes::class.java)
-                    recipe?.let { savedRecipes.add(it) }
-                }
-                savedAdapter.setRecipes(savedRecipes)
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Handle database error
-            }
-        })
-
-        return savedRecipes
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
+
 
 
 
