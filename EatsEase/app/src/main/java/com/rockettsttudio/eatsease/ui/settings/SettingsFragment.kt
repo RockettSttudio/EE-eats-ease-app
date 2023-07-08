@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.core.view.GravityCompat
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -68,8 +69,9 @@ class SettingsFragment : Fragment() {
             helpCenter()
         }
 
-        binding.linearLayoutSecuritySettings.setOnClickListener{
-
+        binding.linearLayoutSecuritySettings.setOnClickListener {
+            val navController = Navigation.findNavController(requireView())
+            navController.navigate(R.id.action_navigation_Settings_to_passwordFragment)
         }
 
     }
