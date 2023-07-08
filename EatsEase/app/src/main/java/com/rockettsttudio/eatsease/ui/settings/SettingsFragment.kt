@@ -67,6 +67,11 @@ class SettingsFragment : Fragment() {
         binding.linearLayoutHELPCENTERSettings.setOnClickListener{
             helpCenter()
         }
+
+        binding.linearLayoutSecuritySettings.setOnClickListener{
+
+        }
+
     }
 
     private fun navigateToLogin() {
