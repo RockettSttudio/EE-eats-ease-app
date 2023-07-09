@@ -8,8 +8,6 @@
     tools:context=".ui.recipes.RecipesFragment">
 
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -26,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <SearchView
+            android:id="@+id/search_recipes_recipes"
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:background="@color/item_background"

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/change_password"
+    tools:context=".ui.settings.PasswordFragment">
+
+
+    <EditText
+        android:id="@+id/etCurrentPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Contraseña actual"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <ImageView
+        android:id="@+id/ivShowPassword1"
+        android:layout_width="56dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="togglePasswordVisibility"
+        android:padding="8dp"
+        android:src="@drawable/ic_eye_closed"
+        app:layout_constraintBottom_toBottomOf="@+id/etCurrentPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etCurrentPassword"
+        android:clickable="true"/>
+
+    <EditText
+        android:id="@+id/etNewPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:hint="Nueva contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCurrentPassword" />
+
+    <ImageView
+        android:id="@+id/ivShowPassword"
+        android:layout_width="56dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="togglePasswordVisibility"
+        android:padding="8dp"
+        android:src="@drawable/ic_eye_closed"
+        app:layout_constraintBottom_toBottomOf="@+id/etNewPassword2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etNewPassword2"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/etCurrentPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNewPassword2"
+        app:layout_constraintVertical_bias="0.234" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
