@@ -33,5 +33,7 @@
     <string name="security">Security</string>
     <string name="app_settings">App Settings</string>
     <string name="help_center">Help Center</string>
+    <string name="nueva_contrase_a">Nueva contraseña</string>
+    <string name="change_password">Change Password</string>
     //MAIN
 </resources>
