@@ -70,6 +70,10 @@
         android:id="@+id/passwordFragment"
         android:name="com.rockettsttudio.eatsease.ui.settings.PasswordFragment"
         android:label="fragment_paswword"
-        tools:layout="@layout/fragment_paswword" />
+        tools:layout="@layout/fragment_paswword" >
+        <action
+            android:id="@+id/action_passwordFragment_to_navigation_Settings"
+            app:destination="@id/navigation_Settings" />
+    </fragment>
 </navigation>
 

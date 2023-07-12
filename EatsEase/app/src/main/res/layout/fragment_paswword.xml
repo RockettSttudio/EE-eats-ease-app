@@ -7,6 +7,50 @@
     android:id="@+id/change_password"
     tools:context=".ui.settings.PasswordFragment">
 
+    <LinearLayout
+        android:id="@+id/linearLayout_password"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageButton
+            android:id="@+id/back_flecha_paswword"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@android:color/transparent"
+            android:rotationY="-180"
+            android:src="@drawable/baseline_arrow_forward_24"
+            android:clickable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="@color/title_text_color"
+            android:textSize="@dimen/big_gap"/>
+
+        <ImageView
+            android:id="@+id/Eats_Ease_password"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="125dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/headline"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true" />
+
+    </LinearLayout>
+
+
 
     <EditText
         android:id="@+id/etCurrentPassword"
@@ -66,10 +110,9 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/etCurrentPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.545" />
 
     <Button
         android:id="@+id/updatePasswordButton"

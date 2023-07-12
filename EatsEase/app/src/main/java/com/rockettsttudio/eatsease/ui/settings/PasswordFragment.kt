@@ -10,12 +10,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.rockettsttudio.eatsease.R
+import com.rockettsttudio.eatsease.databinding.FragmentPaswwordBinding
 
 class PasswordFragment : Fragment() {
+    private var _binding: FragmentPaswwordBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -27,11 +32,17 @@ class PasswordFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_paswword, container, false)
+        _binding = FragmentPaswwordBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-        val currentPasswordEditText = view.findViewById<EditText>(R.id.etCurrentPassword)
-        val newPasswordEditText = view.findViewById<EditText>(R.id.etNewPassword2)
-        val updatePasswordButton = view.findViewById<Button>(R.id.updatePasswordButton)
+        val currentPasswordEditText = binding.etCurrentPassword
+        val newPasswordEditText = binding.etNewPassword2
+        val updatePasswordButton = binding.updatePasswordButton
+
+        binding.backFlechaPaswword.setOnClickListener {
+            val navController = Navigation.findNavController(requireView())
+            navController.navigate(R.id.action_passwordFragment_to_navigation_Settings)
+        }
 
         updatePasswordButton.setOnClickListener {
             val currentPassword = currentPasswordEditText.text.toString()
@@ -73,6 +84,11 @@ class PasswordFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun showToast(message: String) {
