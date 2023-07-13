@@ -122,7 +122,7 @@ class SettingsFragment : Fragment() {
         }
     }
     private fun sendURL() {
-        val url = "https://www.eatseasess.lat"
+        val url = "http://eatsease.me/Home"
 
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
