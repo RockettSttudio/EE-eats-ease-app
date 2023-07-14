@@ -25,133 +25,45 @@
             android:layout_width="409dp"
             android:layout_height="697dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="300dp"
             android:layout_marginEnd="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Linearnewrealese"
             tools:itemCount="10"
             tools:listitem="@layout/home_item">
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="30dp"
-            android:fontFamily="@font/roboto"
-            android:text="@string/today_s_recomendation"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_gap"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="20dp"
-            android:text="new releases"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/black"
-            android:textSize="@dimen/medium_gap"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerview_home"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/Linearnewrealese"
+            android:layout_width="0dp"
+            android:layout_marginTop="8dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/dieta"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/recipe_image_view_home_reco"
-                    android:layout_width="0dp"
-                    android:layout_height="170dp"
-                    android:layout_weight="1"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/svg_layer4"
-                    app:shapeAppearanceOverlay="@style/radius"
-                    tools:ignore="ContentDescription,ImageContrastCheck" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="170dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/recipe_title_view_home_reco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="6dp"
-                        android:fontFamily="@font/didact_gothic"
-                        android:text="titulo de la receta a presentar en la card "
-                        android:textAlignment="center"
-                        android:textColor="#1B2631"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
-
-                    <TextView
-                        android:id="@+id/recipe_desc_view_home_reco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="6dp"
-                        android:fontFamily="@font/roboto_light"
-                        android:text="este es una descripcion de prueba para las cartas a mostrar"
-                        android:textAlignment="center"
-                        android:textColor="#2E4053"
-                        android:textStyle="normal"
-                        tools:ignore="HardcodedText" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp"
-                android:background="#0A000000" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal">
-
-
-                <ImageButton
-                    android:id="@+id/btnDelete"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/basura" />
-
-            </LinearLayout>
-
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/roboto"
+                android:text="New releases"
+                android:textColor="@color/black"
+                android:textSize="@dimen/big_gap"
+                android:textStyle="bold" />
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
