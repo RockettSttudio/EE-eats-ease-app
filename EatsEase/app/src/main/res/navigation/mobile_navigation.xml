@@ -59,7 +59,8 @@
         android:label="SettingsFragment" >
         <action
             android:id="@+id/action_navigation_Settings_to_passwordFragment"
-            app:destination="@id/passwordFragment" />
+            app:destination="@id/passwordFragment"
+            app:popUpTo="@id/passwordFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
@@ -73,7 +74,8 @@
         tools:layout="@layout/fragment_paswword" >
         <action
             android:id="@+id/action_passwordFragment_to_navigation_Settings"
-            app:destination="@id/navigation_Settings" />
+            app:destination="@id/navigation_Settings"
+            app:popUpTo="@id/navigation_Settings" />
     </fragment>
 </navigation>
 
