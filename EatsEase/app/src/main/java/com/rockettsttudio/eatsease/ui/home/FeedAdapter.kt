@@ -22,6 +22,7 @@ class FeedAdapter(
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         val recipe = recipes[position]
+        holder.bind(recipe)
     }
 
     override fun getItemCount(): Int {
