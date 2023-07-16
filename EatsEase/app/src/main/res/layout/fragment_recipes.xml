@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingTop="40dp"
+    android:layout_height="match_parent"
+    tools:context=".ui.recipes.RecipesFragment">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/min_gap"
+        android:layout_marginTop="@dimen/min_gap"
+        android:layout_marginEnd="@dimen/min_gap"
+        android:background="@color/item_background"
+        app:cardCornerRadius="@dimen/medium_gap"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SearchView
+            android:id="@+id/search_recipes_recipes"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/item_background"
+            android:queryHint="Search Recipes" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/actionIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="+ Ingredients"
+        android:textColor="@color/categories_button_color"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:strokeColor="@color/black"
+        app:strokeWidth="0.5dp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipe_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll_view"
+        tools:listitem="@layout/recipe_item_view" />
+
+    <HorizontalScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="115dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/recipe_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actionIngredients">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/asian_cuisine_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/asian_cuisine_img"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/asian_card_view_title" />
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="16dp"
+                        android:text="@string/asian_card_view_title"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/vegan_cuisine_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/vegan_cuisine_img"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/vegan_card_view_title" />
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="16dp"
+                        android:text="@string/vegan_card_view_title"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mexican_cuisine_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/mexican_cuisine_img"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/gluten_free_title" />
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="MEXICAN"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/dessert_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/dessert_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="9dp"
+                        android:text="DESSERT"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/drinks_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/drinks_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="14dp"
+                        android:text="DRINKS"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/italian_cuisine_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/italian_cuisine_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="ITALIAN"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/random_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/random_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="RANDOM"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/snack_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/snacks_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="16dp"
+                        android:text="SNACK"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/lunch_card_view"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                app:cardCornerRadius="15dp"
+                android:textAlignment="center"
+                android:elevation="8dp"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/lunch_img"
+                        android:scaleType="centerCrop"/>
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@drawable/rounded_background"
+                        android:shadowColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="8dp"
+                        android:text="LUNCH"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:buttonTint">@drawable/checkbox_color_selector</item>
+    </style>
+    <style name="radius">
+        <item name="cornerSizeTopRight">45dp</item>
+        <item name="cornerSizeTopLeft">45dp</item>
+        <item name="cornerSizeBottomLeft">45dp</item>
+        <item name="cornerSizeBottomRight">45dp</item>
+    </style>
+</resources>

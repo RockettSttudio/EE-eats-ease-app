@@ -6,5 +6,23 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="plain_text_color">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="categories_button_color">#FF08CE6F</color>
+    <color name="cardview_background">#FFE5D0E3</color>
+    <color name="item_background">#FFCCFBFE</color>
+    <color name="verdeapp">#08CE6F</color>
+    <color name="blackapp">#000000</color>
+    <color name="rosaapp">#E5D0E3</color>
+    <color name="celesteapp">#CCFBFE</color>
+    <color name="azulgoogle">#4285F4</color>
+    <color name="light_background">#F0F0F0</color>
+    <color name="red1">#FF0000</color>
+    <color name="textColorSecondary">#292929</color>
+    <color name="faded_line">#F4F4F4</color>
+    <color name="description_text_color">#2E4053</color>
+    <color name="title_text_color">#08CE6F</color>
+    <color name="top_nav_background">#FFFFFF</color>
+    <color name="card_background_color">#FFFFFF</color>
+
 </resources>
